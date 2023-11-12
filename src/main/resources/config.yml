@@ -1,0 +1,22 @@
+spawn-list:
+  spawn: spawn
+  tsg: tsg
+  zdmt: zdmt
+  hfw: hfw
+  naraku: naraku
+  xzhj: xzhj
+  初生水殿: spawn
+  图书馆: tsg
+  主岛码头: zdmt
+  海风湾: hfw
+  奈落洲主城: naraku
+  新洲海角: xzhj
+real-list:
+  default: spawn
+  nodes:
+    - spawn
+    - tsg
+    - zdmt
+    - hfw
+    - naraku
+    - xzhj

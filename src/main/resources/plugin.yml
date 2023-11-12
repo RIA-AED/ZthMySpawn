@@ -1,0 +1,21 @@
+name: ZthMySpawn
+version: '${project.version}'
+main: ink.magma.zthmyspawn.ZthMySpawn
+api-version: 1.18
+depend: [ HuskHomes, LuckPerms ]
+authors: [ MagmaBlock ]
+commands:
+  myspawn:
+    aliases:
+      - "spawn"
+      - "主城"
+    usage: "/spawn [主城名称]"
+    permission: "zth.myspawn.use"
+  setmyspawn:
+    usage: "/setmyspawn <主城名称>"
+    permission: "zth.myspawn.set"
+permissions:
+  zth.myspawn.use:
+    default: true
+  zth.myspawn.set:
+    default: true

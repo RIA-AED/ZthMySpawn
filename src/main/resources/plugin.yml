@@ -14,8 +14,13 @@ commands:
   setmyspawn:
     usage: "/setmyspawn <主城名称>"
     permission: "zth.myspawn.set"
+  zthmyspawn:
+    usage: "/zthmyspawn reload"
+    permission: "zth.myspawn.admin"
 permissions:
   zth.myspawn.use:
     default: true
   zth.myspawn.set:
     default: true
+  zth.myspawn.admin:
+    default: op

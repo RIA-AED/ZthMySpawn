@@ -1,5 +1,6 @@
 package ink.magma.zthmyspawn;
 
+import ink.magma.zthmyspawn.command.MainCommand;
 import ink.magma.zthmyspawn.command.SetMySpawn;
 import ink.magma.zthmyspawn.command.SpawnCommand;
 import net.luckperms.api.LuckPerms;
@@ -27,6 +28,10 @@ public final class ZthMySpawn extends JavaPlugin implements Listener {
     public void onEnable() {
         // Plugin startup logic
         instance = this;
+        loadPlugin();
+    }
+
+    public void loadPlugin() {
         saveDefaultConfig();
         loadSpawnList();
 
@@ -34,7 +39,7 @@ public final class ZthMySpawn extends JavaPlugin implements Listener {
             huskHomesAPI = HuskHomesAPI.getInstance();
             luckPermsAPI = LuckPermsProvider.get();
         } catch (Exception e) {
-            e.printStackTrace();
+            getLogger().warning(e.getLocalizedMessage());
             getLogger().warning("载入 API 依赖时发生错误, 请检查 HuskHomes、LuckPerms 是否正常!");
             return;
         }
@@ -43,9 +48,10 @@ public final class ZthMySpawn extends JavaPlugin implements Listener {
         try {
             Bukkit.getPluginCommand("myspawn").setExecutor(new SpawnCommand());
             Bukkit.getPluginCommand("setmyspawn").setExecutor(new SetMySpawn());
+            Bukkit.getPluginCommand("zthmyspawn").setExecutor(new MainCommand());
             getLogger().info("成功注册指令!");
         } catch (Exception e) {
-            e.printStackTrace();
+            getLogger().warning(e.getLocalizedMessage());
             getLogger().warning("注册指令时发生错误!");
         }
         Bukkit.getPluginManager().registerEvents(this, this);
